@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.action.excludePattern" value="/static/.*?" />
+	<constant name="struts.multipart.saveDir " value="/Users/apple/Downloads" />
+	<package name="basicstruts2" extends="json-default">
+
+		<action name="logIn" class="action.UserAction"
+			method="execute">
+			<result name="success">/userHome.jsp</result>
+			<result name="admin">/adminHome.jsp</result>
+			<result name="error">/logIn.jsp</result>
+		</action>
+		<action name="signUp" class="action.SignUpAction"
+			method="execute">
+			<result name="success">/home.jsp</result>
+			<result name="error">/signUp.html</result>
+		</action>
+		<action name="changeprofile" class="action.UserAction"
+			method="update">
+			<result name="success">/profile.jsp</result>
+			<result name="error">/profile.jsp</result>
+		</action>
+		<action name="listBook" class="action.ListBookAction" method="executeListBook">
+			<result name="success" type="json">
+				<param name="root">bks</param>
+			</result>
+		</action>
+		<action name="listBook2" class="action.ListBookAction" method="executeListBook2">
+			<result name="success" type="json">
+		</result>
+		</action>
+		<action name="listOrder" class="action.OrderAction" method="execute">
+			<result name="success" type="json">
+				<param name="root">ordr</param>
+			</result>
+		</action>
+		<action name="userCart" class="action.CartAction" method="execute">
+			<result name="success" type="json">
+				<param name="root">ct</param>
+			</result>
+		</action>
+		<action name="buyBook" class="action.BuyAction"
+			method="execute">
+			<result name="success">/userHome.jsp</result>
+			<!--<result name="error">/signUp.html</result> -->
+		</action>
+		<action name="userOrder" class="action.UserOrderAction" method="execute">
+			<result name="success" type="json">
+				<param name="root">ordr</param>
+			</result>
+		</action>
+		<action name="payOrders" class="action.AddOrderAction"
+			method="execute">
+			<result name="success">/userHome.jsp</result>
+			<!--<result name="error">/signUp.html</result> -->
+		</action>
+		<action name="listOrderBy" class="action.HelperAction"
+			method="execute">
+			<result name="success">
+				/listOrderBy.jsp
+			</result>
+		</action>
+		<action name="listOrderByUD" class="action.ListOrderByAction"
+			method="executePara">
+			<result name="success" type="json">
+				<param name="root">ordr</param>
+			</result>
+		</action>
+		<action name="deleteBook" class="action.BookAction"
+			method="executeDelete">
+			<result name="success">/adminHome.jsp
+			</result>
+		</action>
+		<action name="addBook" class="action.BookAction"
+			method="execute">
+			<result name="success">/adminHome.jsp
+			</result>
+		</action>
+		<action name="updateBook" class="action.BookAction"
+			method="executeUpdate">
+			<result name="success">/adminHome.jsp
+			</result>
+			<result name="error">/adminHome.jsp
+			</result>
+		</action>
+		<action name="listUser" class="action.UserAction"
+			method="getUsers">
+			<result name="success" type="json">
+			<param name="root">usr</param>
+			</result>
+		</action>
+		<action name="uploadPhoto" class="action.FileUploadAction"
+			method="execute">
+            <result name="success">/profile.jsp</result>
+            <result name="input">/test.jsp</result>
+            <interceptor-ref name="fileUpload">
+                <param name="allowedTypes">image/bmp,image/png,image/gif,image/jpeg</param>
+                <param name="maximumSize">102400</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack" />
+		</action>
+		<action name="getPhoto" class="action.FileUploadAction"
+			method="getFile">
+			<result name="success" type="stream">
+				<param name="contentType">application/octet-stream</param>  
+                <param name="inputName">image</param>
+                <param name="bufferSize">4096</param> 
+            </result>
+		</action>
+	</package>
+
+</struts>

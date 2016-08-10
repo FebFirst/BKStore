@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+		"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+ <hibernate-mapping package="model">
+ 
+ 	<class name="book" table="Books">
+ 	<id name="ISBN" column="ISBN" type="java.lang.String">
+ 		<generator class="assigned"/>
+ 	</id>
+ 	<property name="bookName" column="Name"/>
+ 	<property name="author" column="Author"/>
+ 	<property name="price" column="Price"/>
+ 	
+ 	
+ 	</class>
+ 
+ </hibernate-mapping>

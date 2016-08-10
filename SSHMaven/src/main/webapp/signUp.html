@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.5">
+    <link href="myCss/logIn.css" rel="stylesheet">
+    <title>Poetry of Time</title>
+
+</head>
+<body>
+<div class="wrapper">
+    <div class="navbar-left">
+        <a ><h1>Poetry of Time</h1> </a>
+    </div>
+    <div class="navbar-right">
+        <ul >
+            <li><a href="signUp.jsp"><h1>sign up</h1></a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <h1>Welcome</h1>
+        <form action="signUp" method="post" class="form">
+            <input id="username" name="username" type="text" placeholder="username">
+            <input id="password" name="password" type="password" placeholder="password">
+            <input id="passwdcmfrm" name="passwdcmfrm" type="password" placeholder="comfirm password">
+            <button type="submit" id="login-button">sign up</button>
+        </form>
+    </div>
+    <ul class="bg-bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script type="text/javascript" src="jQuery/jquery-2.2.4.min.js"></script>
+<!-- <script type="text/javascript">
+    $('#login-button').click(function(event){
+        event.preventDefault();
+        $('form').fadeOut(500);
+        $('.wrapper').addClass('form-success');
+    });
+</script> -->
+
+
+</body>
+</html>
